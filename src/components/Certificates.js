@@ -7,22 +7,30 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import certf1 from "../Assets/Nlp transformer-Nividia Certification.pdf"
 import certf2 from "../Assets/Predictive maintenace-Nividia Certification.pdf"
 import nividia from "../Assets/nividia.png"
+
 const certificates = [
     { link:certf1,
       imgPath:nividia,
       title: 'NLP Transformer',
       description: 'Issued by Nividia Deep Learning Institute'
     },
-    { link:certf2,
+    { 
       imgPath:nividia,
       title: 'Predictive Maintenance',
-      description: 'Issued by Nividia Deep Learning Institute'
+      description: 'Issued by Nividia Deep Learning Institute',
+      link:certf2,
     }
   ];
   
 function CertificateCards(props) {
+  const openPdf = (pdfLink) => {
+    console.log(process.env.REACT_APP_URL)
+    const link=`${process.env.REACT_APP_URL}${pdfLink}`
+    window.open(link, "_blank");
+  };
+  console.log(props)
   return (
-    <Card className="certificate-card-view" onClick={() => window.open(props.link, "_blank")} style={{ cursor: "pointer" }}>
+    <Card className="certificate-card-view" onClick={()=>openPdf(props.link)} style={{ cursor: "pointer" }}>
       <Card.Img variant="top" src={props.imgPath} alt="certificate-img"  />
       <Card.Body>
         <Card.Title className="certificate-title">{props.title}</Card.Title>
@@ -45,6 +53,7 @@ export default function CertificateGallery() {
               imgPath={certificate.imgPath}
               title={certificate.title}
               description={certificate.description}
+              link={certificate.link}
             />
           </Col>
         ))}
