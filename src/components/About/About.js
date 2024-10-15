@@ -38,7 +38,7 @@ function About() {
             className="about-img"
           >
             {/* <img src={laptopImg} alt="about" className="img-fluid" /> */}
-            <TitlebarBelowImageList/>
+            {/* <TitlebarBelowImageList/> */}
           </Col>
         </Row>
         <h1 className="project-heading">
