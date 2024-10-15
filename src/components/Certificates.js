@@ -25,7 +25,8 @@ const certificates = [
 function CertificateCards(props) {
   const openPdf = (pdfLink) => {
     console.log(process.env.REACT_APP_URL)
-    const link=`${process.env.REACT_APP_URL}${pdfLink}`
+    // const link=`${process.env.REACT_APP_URL}${pdfLink}` 
+    const link=`https://sarraportfolio.vercel.app/${pdfLink}`
     window.open(link, "_blank");
   };
   console.log(props)
